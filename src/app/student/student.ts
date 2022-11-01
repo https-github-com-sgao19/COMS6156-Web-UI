@@ -1,10 +1,12 @@
-export interface Student {
-  uni: string;
-  last_name: string;
-  first_name: string;
-  middle_name: string;
-  email: string;
-  school_code: string;
+export class Student {
+
+  constructor(public uni: string,
+              public first_name: string,
+              public middle_name: string,
+              public last_name: string,
+              public email: string,
+              public school_code: string) {}
+
 }
 
 export interface StudentRsp {

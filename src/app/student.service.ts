@@ -24,7 +24,7 @@ export class StudentService {
       result = "";
     }
     else {
-      result = 'http://127.0.0.1:5011/api/students/';
+      result = 'http://127.0.0.1:5011/students/';
     }
     return result;
   }
@@ -32,5 +32,11 @@ export class StudentService {
   getStudents(uni: string) {
     let theUrl = this.getStudentServiceUrl() + uni;
     return this.http.get<Student>(theUrl);
+  }
+
+  postStudents(student: Student) {
+    // let url = this.getStudentServiceUrl();
+    let url = "http://127.0.0.1:5011/students"
+    return this.http.post<any>(url, student);
   }
 }

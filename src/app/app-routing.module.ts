@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {StudentComponent} from "./student/student.component";
+import { StudentComponent } from "./student/student.component";
+import { StudentEnrollmentComponent } from "./student-enrollment/student-enrollment.component";
 
 const routes: Routes = [
-  { path: "api/students", component: StudentComponent }
+  { path: "students", component: StudentComponent },
+  { path: "students/enrollment", component: StudentEnrollmentComponent }
 ];
 
 @NgModule({
@@ -11,4 +13,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [StudentComponent]
+export const routingComponents = [StudentComponent, StudentEnrollmentComponent]

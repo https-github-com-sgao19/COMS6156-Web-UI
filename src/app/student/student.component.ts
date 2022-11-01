@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {StudentService} from "../student.service";
-import {Student} from "./student";
+import { StudentService } from "../student.service";
+import { Student } from "./student";
 
 @Component({
   selector: 'app-student',
@@ -9,9 +9,9 @@ import {Student} from "./student";
 })
 export class StudentComponent implements OnInit {
 
+  private studentService: StudentService;
   public studentName: string;
   public studentUni: string;
-  public studentService: StudentService;
   public studentsInfo: Student[];
 
   constructor(studentService: StudentService) {
@@ -32,7 +32,7 @@ export class StudentComponent implements OnInit {
   onLookUp(): void {
     if (this.studentUni.length > 3) {
       this.studentService.getStudents(this.studentUni)
-        .subscribe((data) => this.setStudentInfo(data));
+        .subscribe((data) => this.studentsInfo = [data]);
     }
   }
 
