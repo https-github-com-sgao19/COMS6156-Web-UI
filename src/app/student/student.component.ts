@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from "../student.service";
-import { Student } from "./student";
+import { Student } from "../student";
 
 @Component({
   selector: 'app-student',
@@ -22,6 +22,7 @@ export class StudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   setStudentInfo(theStudent: Student): void {
@@ -32,7 +33,10 @@ export class StudentComponent implements OnInit {
   onLookUp(): void {
     if (this.studentUni.length > 3) {
       this.studentService.getStudents(this.studentUni)
-        .subscribe((data) => this.studentsInfo = [data]);
+        .subscribe({
+          next: data => this.studentsInfo = data,
+          error: error => console.log("error!", error)
+        });
     }
   }
 

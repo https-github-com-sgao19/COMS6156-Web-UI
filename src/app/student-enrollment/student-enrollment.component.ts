@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from "../student/student";
-import {StudentService} from "../student.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Student } from "../student";
+import { StudentService } from "../student.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Constant } from "../constant"
 
 @Component({
   selector: 'app-student-enrollment',
@@ -13,10 +14,11 @@ export class StudentEnrollmentComponent implements OnInit {
   private studentService: StudentService;
   private router: Router;
   private readonly activateRoute: ActivatedRoute;
-  public schools = ["CC", "GS", "GSAS", "SEAS"];
+  public schools = Constant.schools;
 
   public student: Student;
   public phone: string;
+  public address: string;
 
   constructor(studentService: StudentService, router: Router, activateRoute: ActivatedRoute) {
     this.student = new Student("", "", "", "", "", "");
@@ -24,6 +26,7 @@ export class StudentEnrollmentComponent implements OnInit {
     this.router = router;
     this.activateRoute = activateRoute;
     this.phone = "";
+    this.address = "";
   }
 
   ngOnInit(): void {

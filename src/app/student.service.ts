@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Student} from "./student/student";
+import {Student} from "./student";
 
 @Injectable({
   providedIn: 'root'
@@ -29,14 +29,35 @@ export class StudentService {
     return result;
   }
 
-  getStudents(uni: string) {
-    let theUrl = this.getStudentServiceUrl() + uni;
-    return this.http.get<Student>(theUrl);
+  getStudents(uni: string | null) {
+    let url = this.getStudentServiceUrl();
+    if (uni) {
+      url = this.getStudentServiceUrl() + uni;
+    } else {
+      url = this.getStudentServiceUrl();
+    }
+    console.log(url);
+    // let theUrl = this.getStudentServiceUrl() + uni;
+    return this.http.get<[]>(url);
+  }
+
+  getStudentsByTemplate() {
+    let url = this.getStudentServiceUrl();
   }
 
   postStudents(student: Student) {
     // let url = this.getStudentServiceUrl();
     let url = "http://127.0.0.1:5011/students"
     return this.http.post<any>(url, student);
+  }
+
+  putStudents(student: Student, uni: string) {
+    let url = this.getStudentServiceUrl() + uni;
+    return this.http.put(url, student);
+  }
+
+  deleteStudents(uni: string | null) {
+    let url = this.getStudentServiceUrl() + uni;
+    return this.http.delete(url);
   }
 }
