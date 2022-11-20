@@ -24,7 +24,7 @@ export class StudentService {
       result = "";
     }
     else {
-      result = 'http://127.0.0.1:5011/students/';
+      result = 'http://127.0.0.1:5012/students/';
     }
     return result;
   }
@@ -38,16 +38,17 @@ export class StudentService {
     }
     console.log(url);
     // let theUrl = this.getStudentServiceUrl() + uni;
-    return this.http.get<[]>(url);
+    return this.http.get<Student>(url);
   }
 
   getStudentsByTemplate() {
-    let url = this.getStudentServiceUrl();
+    let url = "http://127.0.0.1:5012/students";
+    return this.http.get<Student[]>(url);
   }
 
   postStudents(student: Student) {
     // let url = this.getStudentServiceUrl();
-    let url = "http://127.0.0.1:5011/students"
+    let url = "http://127.0.0.1:5012/students"
     return this.http.post<any>(url, student);
   }
 

@@ -19,6 +19,12 @@ export class StudentComponent implements OnInit {
     this.studentUni = "";
     this.studentService = studentService;
     this.studentsInfo = [];
+    console.log("look up");
+    this.studentService.getStudentsByTemplate()
+      .subscribe({
+        next: data => this.studentsInfo = data,
+        error: error => console.log("Error!", error)
+      })
   }
 
   ngOnInit(): void {
@@ -34,7 +40,7 @@ export class StudentComponent implements OnInit {
     if (this.studentUni.length > 3) {
       this.studentService.getStudents(this.studentUni)
         .subscribe({
-          next: data => this.studentsInfo = data,
+          next: data => this.setStudentInfo(data),
           error: error => console.log("error!", error)
         });
     }
