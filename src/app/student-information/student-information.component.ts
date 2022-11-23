@@ -19,10 +19,10 @@ export class StudentInformationComponent implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, private studentService: StudentService) {
     this.student = new Student("", "", "", "", "", "");
     this.uni = this.activateRoute.snapshot.paramMap.get('uni');
-    // this.studentService.getStudents(this.uni).subscribe({
-    //   next: (data) => (this.student = data),
-    //   error: (error) => this.router.navigate(["../"], {relativeTo: this.activateRoute})
-    // });
+    this.studentService.getStudentByUni(this.uni).subscribe({
+      next: (data) => (this.student = data),
+      error: (error) => this.router.navigate(["../"], {relativeTo: this.activateRoute})
+    });
     this.editMode = false;
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from "../student.service";
 import { Student } from "../student";
+import { HttpParams } from "@angular/common/http";
 
 @Component({
   selector: 'app-student',
@@ -14,17 +15,19 @@ export class StudentComponent implements OnInit {
   public studentUni: string;
   public studentsInfo: Student[];
 
+  public curPage: number;
+
   constructor(studentService: StudentService) {
     this.studentName = "";
     this.studentUni = "";
     this.studentService = studentService;
     this.studentsInfo = [];
-    console.log("look up");
-    this.studentService.getStudentsByTemplate()
+    this.curPage = 1;
+    this.studentService.getStudents()
       .subscribe({
         next: data => this.studentsInfo = data,
         error: error => console.log("Error!", error)
-      })
+      });
   }
 
   ngOnInit(): void {
@@ -38,12 +41,44 @@ export class StudentComponent implements OnInit {
 
   onLookUp(): void {
     if (this.studentUni.length > 3) {
-      this.studentService.getStudents(this.studentUni)
+      this.studentService.getStudentByUni(this.studentUni)
         .subscribe({
           next: data => this.setStudentInfo(data),
           error: error => console.log("error!", error)
         });
     }
+  }
+
+  isFirstPage(): boolean {
+    return this.curPage === 1;
+  }
+
+  isLastPage(): boolean {
+    return this.studentsInfo.length < 10;
+  }
+
+  onPrev(): void {
+    if (this.isFirstPage())
+      return;
+    let params = new HttpParams().set("page", this.curPage - 1);
+    this.studentService.getStudents(params)
+      .subscribe({
+        next: data => this.studentsInfo = data,
+        error: error => console.log("Error!", error)
+      });
+    this.curPage -= 1;
+  }
+
+  onNext(): void {
+    if (this.isLastPage())
+      return;
+    let params = new HttpParams().set("page", this.curPage + 1);
+    this.studentService.getStudents(params)
+      .subscribe({
+        next: data => this.studentsInfo = data,
+        error: error => console.log("Error!", error)
+      });
+    this.curPage += 1;
   }
 
 }
