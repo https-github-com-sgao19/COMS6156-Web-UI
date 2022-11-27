@@ -36,7 +36,6 @@ export class StudentService {
     } else {
       url = this.getStudentServiceUrl();
     }
-    console.log(url);
     // let theUrl = this.getStudentServiceUrl() + uni;
     return this.http.get<Student>(url);
   }
@@ -54,7 +53,7 @@ export class StudentService {
 
   putStudents(student: Student, uni: string) {
     let url = this.getStudentServiceUrl() + uni;
-    return this.http.put(url, student);
+    return this.http.put<any>(url, student);
   }
 
   deleteStudents(uni: string | null) {

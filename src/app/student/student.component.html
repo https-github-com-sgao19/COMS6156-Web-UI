@@ -1,32 +1,15 @@
-<style>
-  a{
-    text-decoration: none;
-    cursor: default;
-  }
-</style>
-
-<div class="container">
+<div class="container my-3">
   <div class="row">
     <div class="col-md-12">
       <div class="card" style="width: 60rem">
         <div class="card-header">
-          <div class="row">
-            <div class="col">
-              <h3>Columbia Student Information</h3>
-            </div>
-            <div class="col">
-<!--              <button class="btn btn-link collapsed float-end" data-toggle="collapse" data-target="#collapse-L1"-->
-<!--                      aria-expanded="true" aria-controls="collapse1" (click)="toggleCard('artist')">-->
-<!--                <i class="fa fa-plus-square" style="font-size:18px;color:black"></i></button>-->
-            </div>
-          </div>
+          <h3>Columbia Student Information</h3>
         </div>
         <div class="card-body" *ngIf="true">Some information about
           Columbia artists will go here!
           <label>Type in an student's UNI: </label>
           <input type="text" class="form-control mb-3" [(ngModel)]="studentUni">
           <button type="button" (click)="onLookUp()" class="btn btn-primary mb-3">Search</button>
-          <!-- You typed: <span *ngIf="artistName"> "{{ artistName }}" </span> -->
           <table class="table table-striped">
             <thead>
             <tr>
@@ -50,12 +33,13 @@
             </tbody>
           </table>
         </div>
-        <ul class="pagination justify-content-center my-3">
-          <li class="page-item"><a class="page-link" role="button" (click)="onPrev()"><<</a></li>
-          <li class="page-item"><a class="page-link">{{ curPage }}</a></li>
-          <li class="page-item"><a class="page-link" role="button" (click)="onNext()">>></a></li>
-        </ul>
-        <div class="card-footer">That was cool!</div>
+        <div class="card-footer">
+          <ul class="pagination justify-content-center my-3">
+            <li class="page-item"><a class="page-link" role="button" (click)="onPrev()"><<</a></li>
+            <li class="page-item"><a class="page-link">{{ curPage }}</a></li>
+            <li class="page-item"><a class="page-link" role="button" (click)="onNext()">>></a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

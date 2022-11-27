@@ -35,6 +35,10 @@ export class StudentInformationComponent implements OnInit {
 
   onSave(): void {
     this.editMode = false;
+    this.studentService.putStudents(this.student, this.student.uni).subscribe({
+      next: data => console.log("Success!", data),
+      error: error => console.log("Error!", error)
+    });
   }
 
   onDelete(): void {
