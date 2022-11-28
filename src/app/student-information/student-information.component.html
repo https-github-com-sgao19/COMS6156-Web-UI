@@ -4,19 +4,20 @@
 <!--    <div *ngIf="!editMode"><a class="btn btn-sm btn-info" (click)="onEdit()" id="edit">Edit Profile</a></div>-->
     <a *ngIf="!editMode" class="btn btn-sm btn-info" (click)="onEdit()" id="edit">Edit Profile</a>
   </h2>
-  <form #studentForm="ngForm" novalidate>
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">General</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Address</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Courses</a>
-      </li>
-    </ul>
 
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink>First</a>
+      <ng-template ngbNavContent>First content</ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Second</a>
+      <ng-template ngbNavContent>Second content</ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
+
+  <form #studentForm="ngForm" novalidate>
     <div class="row mb-3">
       <div class="col-md-4">
         <label>First Name</label>

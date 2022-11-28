@@ -5,11 +5,17 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { StudentContactComponent } from './student-contact/student-contact.component';
+import { StudentGeneralComponent } from './student-general/student-general.component';
+import { StudentCoursesComponent } from './student-courses/student-courses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    StudentContactComponent,
+    StudentGeneralComponent,
+    StudentCoursesComponent
   ],
   imports: [
     BrowserModule,
