@@ -1,0 +1,62 @@
+<div class="container-fluid my-3">
+  <form #studentForm="ngForm" novalidate>
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label>First Name</label>
+        <input type="text" #studentFirstName="ngModel"
+               [class.is-invalid]="studentFirstName.invalid && studentFirstName.touched"
+               class="form-control" [(ngModel)]="student.first_name" name="firstName" [disabled]="!editMode" required>
+        <small class="text-danger" [class.d-none]="studentFirstName.valid || studentFirstName.untouched">
+          First Name is required
+        </small>
+      </div>
+
+      <div class="col-md-4">
+        <label>Middle Name</label>
+        <input type="text" class="form-control" [(ngModel)]="student.middle_name" [disabled]="!editMode" name="middleName">
+      </div>
+
+      <div class="col-md-4">
+        <label>Last Name</label>
+        <input type="text" #studentLastName="ngModel"
+               [class.is-invalid]="studentLastName.invalid && studentLastName.touched"
+               class="form-control" [(ngModel)]="student.last_name" name="lastName" [disabled]="!editMode" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>UNI</label>
+      <input type="text" #studentUni="ngModel"
+             [class.is-invalid]="studentUni.invalid && studentUni.touched"
+             class="form-control" [(ngModel)]="student.uni" name="uni" [disabled]="!editMode" required>
+      <small class="text-danger" [class.d-none]="studentUni.valid || studentUni.untouched">
+        UNI is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" #studentEmail="ngModel" [class.is-invalid]="studentEmail.invalid && studentEmail.touched"
+             class="form-control" [(ngModel)]="student.email" name="email" [disabled]="!editMode" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Address</label>
+      <input type="text" class="form-control" name="address" [disabled]="!editMode">
+    </div>
+
+    <div class="g-3 mb-3">
+      <select #studentSchool="ngModel" [class.is-invalid]="studentSchool.invalid && studentSchool.touched"
+              class="form-select" [(ngModel)]="student.school_code" name="school" [disabled]="!editMode" required>
+        <option value="" selected>-- School --</option>
+        <option *ngFor="let school of schools">{{ school }}</option>
+      </select>
+      <small class="text-danger" [class.d-none]="studentSchool.valid || studentSchool.untouched">School is required</small>
+    </div>
+
+    <button *ngIf="!editMode" class="btn btn-info" (click)="onEdit()" id="edit">Edit Profile</button>
+    <button *ngIf="editMode" [disabled]="studentForm.form.invalid" class="btn btn-primary" (click)="onSave()">Save</button>
+    <button *ngIf="editMode" class="btn btn-primary" style="float: right" (click)="onCancel()">Cancel</button>
+    <!--    {{studentForm.value | json}}-->
+  </form>
+</div>

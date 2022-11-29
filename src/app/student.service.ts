@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Student} from "./student";
 
 @Injectable({
@@ -29,20 +29,20 @@ export class StudentService {
     return result;
   }
 
-  getStudents(uni: string | null) {
+  getStudentByUni(uni: string | null) {
     let url = this.getStudentServiceUrl();
     if (uni) {
       url = this.getStudentServiceUrl() + uni;
     } else {
       url = this.getStudentServiceUrl();
     }
-    console.log(url);
     // let theUrl = this.getStudentServiceUrl() + uni;
-    return this.http.get<[]>(url);
+    return this.http.get<Student>(url);
   }
 
-  getStudentsByTemplate() {
-    let url = this.getStudentServiceUrl();
+  getStudents(params: HttpParams=new HttpParams()) {
+    let url = "http://127.0.0.1:5011/students";
+    return this.http.get<Student[]>(url, { params: params });
   }
 
   postStudents(student: Student) {
@@ -53,7 +53,7 @@ export class StudentService {
 
   putStudents(student: Student, uni: string) {
     let url = this.getStudentServiceUrl() + uni;
-    return this.http.put(url, student);
+    return this.http.put<any>(url, student);
   }
 
   deleteStudents(uni: string | null) {

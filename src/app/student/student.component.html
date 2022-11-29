@@ -1,57 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card" style="width: 60rem">
-        <div class="card-header">
-          <div class="row">
-            <div class="col">
-              <h3>Columbia Student Information</h3>
-            </div>
-            <div class="col">
-<!--              <button class="btn btn-link collapsed float-end" data-toggle="collapse" data-target="#collapse-L1"-->
-<!--                      aria-expanded="true" aria-controls="collapse1" (click)="toggleCard('artist')">-->
-<!--                <i class="fa fa-plus-square" style="font-size:18px;color:black"></i></button>-->
-            </div>
-          </div>
-        </div>
-        <div class="card-body" *ngIf="true">Some information about
-          Columbia artists will go here!
-          <label>Type in an student's UNI: </label>
-          <input type="text" class="form-control mb-3" [(ngModel)]="studentUni">
-          <button type="button" (click)="onLookUp()" class="btn btn-primary mb-3">Search</button>
-          <!-- You typed: <span *ngIf="artistName"> "{{ artistName }}" </span> -->
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th scope="col">Student ID</th>
-              <th scope="col">Last name</th>
-              <th scope="col">First name</th>
-              <th scope="col">Middle name</th>
-              <th scope="col">Email</th>
-              <th scope="col">School code</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let p of studentsInfo; index as i">
-              <td>{{ p.uni }}</td>
-              <td>{{ p.last_name }}</td>
-              <td>{{ p.first_name }}</td>
-              <td>{{ p.middle_name }}</td>
-              <td>{{ p.email }}</td>
-              <td>{{ p.school_code }}</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="card-footer">That was cool!</div>
-      </div>
+<div class="container my-3">
+  <div class="card" style="width: 60rem">
+    <div class="card-header">
+      <h3>Columbia Student Information</h3>
+    </div>
+    <div class="card-body">Some information about Columbia artists will go here!
+      <label>Type in an student's UNI: </label>
+      <input type="text" class="form-control mb-3" [(ngModel)]="studentUni">
+      <button type="button" (click)="onLookUp()" class="btn btn-primary mb-3">Search</button>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Student ID</th>
+          <th scope="col">Last name</th>
+          <th scope="col">First name</th>
+          <th scope="col">Middle name</th>
+          <th scope="col">Email</th>
+          <th scope="col">School code</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of studentsInfo; index as i">
+          <td><a href="/students/{{p.uni}}">{{ p.uni }}</a></td>
+          <td>{{ p.last_name }}</td>
+          <td>{{ p.first_name }}</td>
+          <td>{{ p.middle_name }}</td>
+          <td>{{ p.email }}</td>
+          <td>{{ p.school_code }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer">
+      <ul class="pagination justify-content-center my-3">
+        <li class="page-item"><a class="page-link" role="button" (click)="onPrev()"><<</a></li>
+        <li class="page-item"><a class="page-link">{{ curPage }}</a></li>
+        <li class="page-item"><a class="page-link" role="button" (click)="onNext()">>></a></li>
+      </ul>
     </div>
   </div>
 </div>
-<ul class="pagination justify-content-center my-3">
-  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-  <li class="page-item"><a class="page-link" href="#">1</a></li>
-  <li class="page-item"><a class="page-link" href="#">2</a></li>
-  <li class="page-item"><a class="page-link" href="#">3</a></li>
-  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-</ul>
+
