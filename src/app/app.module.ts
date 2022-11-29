@@ -8,6 +8,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { StudentContactComponent } from './student-contact/student-contact.component';
 import { StudentGeneralComponent } from './student-general/student-general.component';
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
+import { NgbNavModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { StudentCoursesComponent } from './student-courses/student-courses.compo
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbNavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
