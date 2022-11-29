@@ -41,6 +41,14 @@ export class StudentGeneralComponent implements OnInit {
     });
   }
 
+  onCancel(): void {
+    this.studentService.getStudentByUni(this.uni).subscribe({
+      next: (data) => (this.student = data),
+      error: (error) => this.router.navigate(["../"], {relativeTo: this.activateRoute})
+    });
+    this.editMode = false;
+  }
+
   onDelete(): void {
     this.studentService.deleteStudents(this.uni).subscribe({
       next: data => console.log("Success!", data),

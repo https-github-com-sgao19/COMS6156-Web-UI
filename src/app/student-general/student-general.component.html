@@ -56,6 +56,7 @@
 
     <button *ngIf="!editMode" class="btn btn-info" (click)="onEdit()" id="edit">Edit Profile</button>
     <button *ngIf="editMode" [disabled]="studentForm.form.invalid" class="btn btn-primary" (click)="onSave()">Save</button>
+    <button *ngIf="editMode" class="btn btn-primary" style="float: right" (click)="onCancel()">Cancel</button>
     <!--    {{studentForm.value | json}}-->
   </form>
 </div>

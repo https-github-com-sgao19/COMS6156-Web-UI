@@ -20,7 +20,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let p of studentsInfo; index as i">
-          <td>{{ p.uni }}</td>
+          <td><a href="/students/{{p.uni}}">{{ p.uni }}</a></td>
           <td>{{ p.last_name }}</td>
           <td>{{ p.first_name }}</td>
           <td>{{ p.middle_name }}</td>
