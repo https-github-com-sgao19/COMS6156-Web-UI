@@ -1,1 +1,42 @@
-<p>course works!</p>
+<div class="container my-3">
+        <div class="card" style="width: 60rem">
+          <div class="card-header">
+            <h3>Columbia Course Information</h3>
+          </div>
+          <div class="card-body">Some information about Columbia courses will go here!
+            <label>Type in course call_number: </label>
+            <input type="text" class="form-control mb-3" [(ngModel)]="coursecall_number">
+            <button type="button" (click)="onLookUp()" class="btn btn-primary mb-3">Search</button>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">Call_Number</th>
+                <th scope="col">Class_Title</th>
+                <th scope="col">Instructor</th>
+                <th scope="col">Day</th>
+                <th scope="col">Time_Location</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let p of coursesInfo; index as i">
+                <td><a href="/courses/{{p.call_number}}">{{ p.call_number }}</a></td>
+                <td>{{ p.call_number }}</td>
+                <td>{{ p.class_title }}</td>
+                <td>{{ p.instructor }}</td>
+                <td>{{ p.day }}</td>
+                <td>{{ p.time_Location }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer">
+            <ul class="pagination justify-content-center my-3">
+              <li class="page-item"><a class="page-link" role="button" (click)="onPrev()"><<</a></li>
+              <li class="page-item"><a class="page-link">{{ curPage }}</a></li>
+              <li class="page-item"><a class="page-link" role="button" (click)="onNext()">>></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      
