@@ -49,6 +49,17 @@ export class CourseComponent implements OnInit {
     }
   }
 
+  // onInsert(): void{
+  //   if (this.coursecall_number.length > 3) {
+  //     this.courseService.postCourses(Course)
+  //       .subscribe({
+  //         next: data => this.setCourseInfo(data),
+  //         error: error => console.log("error!", error)
+  //       });
+  //   }
+  // }
+  console: any;
+
   isFirstPage(): boolean {
     return this.curPage === 1;
   }

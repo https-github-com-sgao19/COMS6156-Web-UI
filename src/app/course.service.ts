@@ -24,7 +24,7 @@ export class CourseService {
       result = "";
     }
     else {
-      result = 'http://127.0.0.1:5011/courses/';
+      result = 'http://127.0.0.1:5011/sections/';
     }
     return result;
   }
@@ -41,13 +41,13 @@ export class CourseService {
   }
 
   getCourses(params: HttpParams=new HttpParams()) {
-    let url = "http://127.0.0.1:5011/courses";
+    let url = "http://127.0.0.1:5011/sections";
     return this.http.get<Course[]>(url, { params: params });
   }
 
   postCourses(course: Course) {
     // let url = this.getStudentServiceUrl();
-    let url = "http://127.0.0.1:5011/courses"
+    let url = "http://127.0.0.1:5011/sections"
     return this.http.post<any>(url, course);
   }
 
