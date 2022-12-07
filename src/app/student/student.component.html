@@ -1,8 +1,19 @@
 <div class="container my-3">
   <div class="card" style="width: 60rem">
     <div class="card-header">
-      <h3>Columbia Student Information</h3>
+      <h3 class="my-3" style="float: left">Columbia Student Information</h3>
+      <div style="float: right" ngbDropdown class="d-inline-block my-3">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+          More Actions
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem onclick="location.href='/students/enrollment'">Enroll</button>
+          <button ngbDropdownItem>Another Action</button>
+          <button ngbDropdownItem>Something else is here</button>
+        </div>
+      </div>
     </div>
+
     <div class="card-body">Some information about Columbia artists will go here!
       <label>Type in an student's UNI: </label>
       <input type="text" class="form-control mb-3" [(ngModel)]="studentUni">
@@ -30,11 +41,28 @@
         </tbody>
       </table>
     </div>
+
     <div class="card-footer">
       <ul class="pagination justify-content-center my-3">
-        <li class="page-item"><a class="page-link" role="button" (click)="onPrev()"><<</a></li>
-        <li class="page-item"><a class="page-link">{{ curPage }}</a></li>
-        <li class="page-item"><a class="page-link" role="button" (click)="onNext()">>></a></li>
+        <li class="page-item">
+          <div *ngIf="isFirstPage() then firstPage else notFirstPage"></div>
+          <ng-template #firstPage>
+            <a class="page-link disabled" role="button"> << </a>
+          </ng-template>
+          <ng-template #notFirstPage>
+            <a class="page-link" role="button" (click)="onPrev()"> << </a>
+          </ng-template>
+        </li>
+        <li class="page-item"><a class="page-link disabled">{{ curPage }}</a></li>
+        <li class="page-item">
+          <div *ngIf="isLastPage() then lastPage else notLastPage"></div>
+          <ng-template #lastPage>
+            <a class="page-link disabled" role="button"> >> </a>
+          </ng-template>
+          <ng-template #notLastPage>
+            <a class="page-link" role="button" (click)="onNext()"> >> </a>
+          </ng-template>
+        </li>
       </ul>
     </div>
   </div>

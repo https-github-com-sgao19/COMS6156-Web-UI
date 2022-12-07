@@ -31,7 +31,6 @@ export class StudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   setStudentInfo(theStudent: Student): void {
@@ -58,8 +57,6 @@ export class StudentComponent implements OnInit {
   }
 
   onPrev(): void {
-    if (this.isFirstPage())
-      return;
     let params = new HttpParams().set("page", this.curPage - 1);
     this.studentService.getStudents(params)
       .subscribe({
@@ -70,8 +67,6 @@ export class StudentComponent implements OnInit {
   }
 
   onNext(): void {
-    if (this.isLastPage())
-      return;
     let params = new HttpParams().set("page", this.curPage + 1);
     this.studentService.getStudents(params)
       .subscribe({
