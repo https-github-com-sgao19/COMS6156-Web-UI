@@ -31,7 +31,6 @@ export class CourseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   setCourseInfo(theCourse: Course): void {
