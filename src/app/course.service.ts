@@ -43,7 +43,7 @@ export class CourseService {
   }
 
   getCourses(params: HttpParams=new HttpParams()) {
-    let url = "http://127.0.0.1:5011/Sections";
+    let url = "http://127.0.0.1:5011/sections";
     return this.http.get<Course[]>(url, { params: params });
   }
 
