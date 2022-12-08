@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from "../course.service";
 import { Course } from "../course";
 import { HttpParams } from "@angular/common/http";
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-course',
@@ -9,6 +12,8 @@ import { HttpParams } from "@angular/common/http";
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+
+
 
   private courseService: CourseService;
   public courseName: string;
@@ -48,17 +53,6 @@ export class CourseComponent implements OnInit {
         });
     }
   }
-
-  // onInsert(): void{
-  //   if (this.coursecall_number.length > 3) {
-  //     this.courseService.postCourses(Course)
-  //       .subscribe({
-  //         next: data => this.setCourseInfo(data),
-  //         error: error => console.log("error!", error)
-  //       });
-  //   }
-  // }
-  console: any;
 
   isFirstPage(): boolean {
     return this.curPage === 1;

@@ -7,9 +7,9 @@
             <label>Type in course call_number: </label>
             <input type="text" class="form-control mb-3" [(ngModel)]="coursecall_number">
             <button type="button" (click)="onLookUp()" class="btn btn-primary mb-3">Search</button>
-            <button style="margin-left:10px" type="button" (click)="console.log('insert')" class="btn btn-primary mb-3">Insert</button>
-            <button style="margin-left:10px" type="button" (click)="console.log('modify')" class="btn btn-primary mb-3">Modify</button>
-            <button style="margin-left:10px" type="button" (click)="console.log('delete')" class="btn btn-primary mb-3">Delete</button>
+            <button style="margin-left:10px" type="button" onclick="location.href='/courses/insert'" class="btn btn-primary mb-3">Insert</button>
+            <button style="margin-left:10px" type="button" class="btn btn-primary mb-3">Modify</button>
+            <button style="margin-left:10px" type="button" class="btn btn-primary mb-3">Delete</button>
             <table class="table table-striped">
               <thead>
               <tr>

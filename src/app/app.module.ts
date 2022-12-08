@@ -9,6 +9,7 @@ import { StudentContactComponent } from './student-contact/student-contact.compo
 import { StudentGeneralComponent } from './student-general/student-general.component';
 import { StudentCoursesComponent } from './student-courses/student-courses.component';
 import { NgbNavModule } from "@ng-bootstrap/ng-bootstrap";
+import { CourseInsertComponent } from './course-insert/course-insert.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgbNavModule } from "@ng-bootstrap/ng-bootstrap";
     routingComponents,
     StudentContactComponent,
     StudentGeneralComponent,
-    StudentCoursesComponent
+    StudentCoursesComponent,
+    CourseInsertComponent
   ],
   imports: [
     BrowserModule,
