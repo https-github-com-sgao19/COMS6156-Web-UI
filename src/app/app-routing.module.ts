@@ -5,6 +5,7 @@ import { StudentEnrollmentComponent } from "./student-enrollment/student-enrollm
 import { StudentInformationComponent } from "./student-information/student-information.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { CourseComponent } from "./course/course.component";
+import {CourseInsertComponent} from "./course-insert/course-insert.component";
 
 const routes: Routes = [
   { path: "", component: NavbarComponent, children: [
@@ -12,7 +13,8 @@ const routes: Routes = [
       { path: "courses", component: CourseComponent }
     ] },
   { path: "students/enrollment", component: StudentEnrollmentComponent },
-  { path: "students/:uni", component: StudentInformationComponent }
+  { path: "students/:uni", component: StudentInformationComponent },
+  { path: "courses/insert", component: CourseInsertComponent }
 ];
 
 @NgModule({
