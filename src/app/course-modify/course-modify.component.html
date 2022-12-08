@@ -1,0 +1,47 @@
+<!--<div class="container-fluid">-->
+<div class="container basicontainer my-3">
+  <h1>Course Modify Form</h1>
+  <form #courseForm="ngForm" novalidate>
+    {{courseForm.value | json}}
+    <div class="mb-3">
+      <label>Call Number</label>
+      <input type="text" #courseCallNumber="ngModel"
+             [class.is-invalid]="courseCallNumber.invalid && courseCallNumber.touched"
+             class="form-control" [(ngModel)]="course.call_number" name="call_number" required>
+      <small class="text-danger" [class.d-none]="courseCallNumber.valid || courseCallNumber.untouched">
+        Call Number is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label>Class Title</label>
+      <input type="text" #courseClassTitle="ngModel"
+             [class.is-invalid]="courseClassTitle.invalid && courseClassTitle.touched"
+             class="form-control" [(ngModel)]="course.class_title" name="class_title" required>
+      <small class="text-danger" [class.d-none]="courseClassTitle.valid || courseClassTitle.untouched">
+        Class Title is required
+      </small>
+    </div>
+
+    <div class="mb-3">
+      <label>Instructor</label>
+      <input type="text" class="form-control" [(ngModel)]="course.instructor" name="instructor" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Day</label>
+      <input type="text" class="form-control" [(ngModel)]="course.day" name="day" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Time Location</label>
+      <input type="text" class="form-control" [(ngModel)]="course.time_Location" name="time_Location" required>
+    </div>
+
+
+
+
+
+    <button [disabled]="courseForm.form.invalid" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  </form>
+</div>
