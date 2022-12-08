@@ -5,7 +5,8 @@ import { StudentEnrollmentComponent } from "./student-enrollment/student-enrollm
 import { StudentInformationComponent } from "./student-information/student-information.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { CourseComponent } from "./course/course.component";
-import { CourseInsertComponent } from "./course-insert/course-insert.component";
+import {CourseInsertComponent} from "./course-insert/course-insert.component";
+import {CourseModifyComponent} from "./course-modify/course-modify.component";
 
 const routes: Routes = [
   {
@@ -16,14 +17,21 @@ const routes: Routes = [
   },
   { path: "students/enrollment", component: StudentEnrollmentComponent },
   { path: "students/:uni", component: StudentInformationComponent },
-  { path: "courses/insert", component: CourseInsertComponent }
+  { path: "courses/insert", component: CourseInsertComponent },
+  { path: "courses/:call_no", component: CourseModifyComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
-
-export const routingComponents = [NavbarComponent, StudentComponent, StudentEnrollmentComponent, StudentInformationComponent, CourseComponent, CourseInsertComponent]
+export class AppRoutingModule { }
+export const routingComponents = [
+  NavbarComponent,
+  StudentComponent,
+  StudentEnrollmentComponent,
+  StudentInformationComponent,
+  CourseComponent,
+  CourseInsertComponent,
+  CourseModifyComponent
+]

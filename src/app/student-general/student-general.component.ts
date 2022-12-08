@@ -12,15 +12,17 @@ import {StudentService} from "../student.service";
 export class StudentGeneralComponent implements OnInit {
 
   public student: Student;
+  public studentOld: Student;
   public uni: string | null;
   public schools = Constant.schools;
   public editMode: boolean;
 
   constructor(private activateRoute: ActivatedRoute, private router: Router, private studentService: StudentService) {
-    this.student = new Student("", "", "", "", "", "");
+    this.student = new Student();
+    this.studentOld = new Student();
     this.uni = this.activateRoute.snapshot.paramMap.get('uni');
     this.studentService.getStudentByUni(this.uni).subscribe({
-      next: (data) => (this.student = data),
+      next: (data) => this.student = data,
       error: (error) => this.router.navigate(["../"], {relativeTo: this.activateRoute})
     });
     this.editMode = false;
@@ -31,6 +33,7 @@ export class StudentGeneralComponent implements OnInit {
 
   onEdit(): void {
     this.editMode = true;
+    Object.assign(this.studentOld, this.student);
   }
 
   onSave(): void {
@@ -39,14 +42,12 @@ export class StudentGeneralComponent implements OnInit {
       next: data => console.log("Success!", data),
       error: error => console.log("Error!", error)
     });
+    Object.assign(this.studentOld, this.student);
   }
 
   onCancel(): void {
-    this.studentService.getStudentByUni(this.uni).subscribe({
-      next: (data) => (this.student = data),
-      error: (error) => this.router.navigate(["../"], {relativeTo: this.activateRoute})
-    });
     this.editMode = false;
+    Object.assign(this.student, this.studentOld);
   }
 
   onDelete(): void {
