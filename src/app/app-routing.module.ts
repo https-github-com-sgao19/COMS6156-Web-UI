@@ -5,13 +5,15 @@ import { StudentEnrollmentComponent } from "./student-enrollment/student-enrollm
 import { StudentInformationComponent } from "./student-information/student-information.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { CourseComponent } from "./course/course.component";
-import {CourseInsertComponent} from "./course-insert/course-insert.component";
+import { CourseInsertComponent } from "./course-insert/course-insert.component";
 
 const routes: Routes = [
-  { path: "", component: NavbarComponent, children: [
+  {
+    path: "", component: NavbarComponent, children: [
       { path: "students", component: StudentComponent },
       { path: "courses", component: CourseComponent }
-    ] },
+    ]
+  },
   { path: "students/enrollment", component: StudentEnrollmentComponent },
   { path: "students/:uni", component: StudentInformationComponent },
   { path: "courses/insert", component: CourseInsertComponent }
@@ -21,5 +23,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
-export const routingComponents = [NavbarComponent, StudentComponent, StudentEnrollmentComponent, StudentInformationComponent, CourseComponent]
+export class AppRoutingModule {
+}
+
+export const routingComponents = [NavbarComponent, StudentComponent, StudentEnrollmentComponent, StudentInformationComponent, CourseComponent, CourseInsertComponent]
