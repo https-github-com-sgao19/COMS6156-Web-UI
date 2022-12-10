@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from "../course.service";
 import { Course } from "../course";
 import { HttpParams } from "@angular/common/http";
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-course',
@@ -48,17 +51,6 @@ export class CourseComponent implements OnInit {
     }
   }
 
-  // onInsert(): void{
-  //   if (this.coursecall_number.length > 3) {
-  //     this.courseService.postCourses(Course)
-  //       .subscribe({
-  //         next: data => this.setCourseInfo(data),
-  //         error: error => console.log("error!", error)
-  //       });
-  //   }
-  // }
-  console: any;
-
   isFirstPage(): boolean {
     return this.curPage === 1;
   }
@@ -68,8 +60,6 @@ export class CourseComponent implements OnInit {
   }
 
   onPrev(): void {
-    if (this.isFirstPage())
-      return;
     let params = new HttpParams().set("page", this.curPage - 1);
     this.courseService.getCourses(params)
       .subscribe({
@@ -80,8 +70,6 @@ export class CourseComponent implements OnInit {
   }
 
   onNext(): void {
-    if (this.isLastPage())
-      return;
     let params = new HttpParams().set("page", this.curPage + 1);
     this.courseService.getCourses(params)
       .subscribe({
