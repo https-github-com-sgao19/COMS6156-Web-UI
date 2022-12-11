@@ -31,6 +31,7 @@ export class CourseService {
     return result;
   }
 
+
   getCourseBycall_number(call_number: string | null) {
     let url = this.getCourseServiceUrl();
     if (call_number) {

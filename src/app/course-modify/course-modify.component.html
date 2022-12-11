@@ -38,7 +38,33 @@
       <input type="text" class="form-control" [(ngModel)]="course.time_Location" name="time_Location" required>
     </div>
 
+    <div class="mb-3">
+      <label><b>Project</b></label>
+      <p></p>
+      <div class='table-responsive'>
+        <table class='table' style="border: 1px solid black;border-collapse: collapse;">
+          <thead>
+          <tr>
+            <th>Project Id</th>
+            <th>Project Name</th>
+            <th>Group Name</th>
+            <th>Description</th>
 
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let p of project;">
+            <td>{{p.project_id}}</td>
+            <td>{{p.project_name}}</td>
+            <td>{{p.group_name}}</td>
+            <td>{{p.description}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
 
 
 
