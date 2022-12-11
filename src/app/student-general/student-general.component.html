@@ -1,5 +1,6 @@
 <div class="container-fluid my-3">
   <form #studentForm="ngForm" novalidate>
+    {{studentForm.value | json}}
     <div class="row mb-3">
       <div class="col-md-4">
         <label>First Name</label>
@@ -57,6 +58,6 @@
     <button *ngIf="!editMode" class="btn btn-info" (click)="onEdit()" id="edit">Edit Profile</button>
     <button *ngIf="editMode" [disabled]="studentForm.form.invalid" class="btn btn-primary" (click)="onSave()">Save</button>
     <button *ngIf="editMode" class="btn btn-primary" style="float: right" (click)="onCancel()">Cancel</button>
-    <!--    {{studentForm.value | json}}-->
+    {{ student | json }}
   </form>
 </div>
