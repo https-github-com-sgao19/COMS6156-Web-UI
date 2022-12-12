@@ -8,7 +8,7 @@ import { Constant } from "./constant";
 })
 export class StudentService {
 
-  private readonly url = Constant.studentMicroserviceUrl + "/students";
+  private readonly url = Constant.apiGatewayUrl + "/students";
   public students: Student[];
 
   constructor(private http: HttpClient) {
@@ -47,7 +47,6 @@ export class StudentService {
   }
 
   postStudents(student: Student) {
-    // let url = this.getStudentServiceUrl();
     let url = this.getStudentServiceUrl();
     return this.http.post<any>(url, student);
   }

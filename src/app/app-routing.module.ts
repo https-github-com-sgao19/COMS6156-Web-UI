@@ -26,4 +26,13 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [NavbarComponent, StudentComponent, StudentEnrollmentComponent, StudentInformationComponent, CourseComponent, CourseModifyComponent,CourseProjectComponent]
+export const routingComponents = [
+  NavbarComponent,
+  StudentComponent,
+  StudentEnrollmentComponent,
+  StudentInformationComponent,
+  CourseComponent,
+  CourseModifyComponent,
+  CourseProjectComponent,
+  CourseInsertComponent
+]
