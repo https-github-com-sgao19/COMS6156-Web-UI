@@ -1,1 +1,30 @@
-<p>student-courses works!</p>
+<div class="container my-3">
+  <div class="card" style="width: 60rem">
+
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Course number</th>
+          <th scope="col">Class title</th>
+          <th scope="col">Instructor</th>
+          <th scope="col">Day</th>
+          <th scope="col">Time/Location</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of courses; index as i">
+          <td>{{ p.call_number }}</td>
+          <td>{{ p.class_title }}</td>
+          <td>{{ p.instructor }}</td>
+          <td>{{ p.day }}</td>
+          <td>{{ p.time_Location }}</td>
+
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

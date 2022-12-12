@@ -63,4 +63,9 @@ export class CourseService {
     let url = this.getCourseServiceUrl() + call_number;
     return this.http.delete(url);
   }
+
+  getEnrollmentByUni(uni: string | null) {
+    let url = "http://127.0.0.1:5011/" + uni;
+    return this.http.get<Course[]>(url);
+  }
 }
