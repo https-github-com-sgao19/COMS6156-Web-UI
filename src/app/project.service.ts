@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Constant} from "./constant";
-import {Course} from "./course";
-import {HttpClient} from "@angular/common/http";
-import {Project} from "./project";
+import { Constant } from "./constant";
+import { HttpClient } from "@angular/common/http";
+import { Project } from "./project";
 
 @Injectable({
   providedIn: 'root'

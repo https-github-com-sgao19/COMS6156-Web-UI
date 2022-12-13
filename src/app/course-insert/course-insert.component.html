@@ -1,8 +1,6 @@
-<!--<div class="container-fluid">-->
 <div class="container basicontainer my-3">
   <h1>Course Insert Form</h1>
   <form #courseForm="ngForm" novalidate>
-        {{courseForm.value | json}}
     <div class="mb-3">
       <label>Call Number</label>
       <input type="text" #courseCallNumber="ngModel"
@@ -37,10 +35,6 @@
       <label>Time Location</label>
       <input type="text" class="form-control" [(ngModel)]="course.time_Location" name="time_Location" required>
     </div>
-
-
-
-
 
     <button [disabled]="courseForm.form.invalid" class="btn btn-primary" (click)="onSubmit()">Submit</button>
   </form>

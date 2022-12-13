@@ -5,9 +5,9 @@ import { StudentEnrollmentComponent } from "./student-enrollment/student-enrollm
 import { StudentInformationComponent } from "./student-information/student-information.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { CourseComponent } from "./course/course.component";
-import {CourseInsertComponent} from "./course-insert/course-insert.component";
-import {CourseModifyComponent} from "./course-modify/course-modify.component";
-import {CourseProjectComponent} from "./course-project/course-project.component";
+import { CourseInsertComponent } from "./course-insert/course-insert.component";
+import { CourseModifyComponent } from "./course-modify/course-modify.component";
+import { CourseProjectComponent } from "./course-project/course-project.component";
 
 const routes: Routes = [
   { path: "", component: NavbarComponent, children: [

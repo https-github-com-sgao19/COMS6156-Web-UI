@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {Course} from "./course";
-import {Constant} from "./constant";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Course } from "./course";
+import { Constant } from "./constant";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,8 @@ import {Constant} from "./constant";
 export class CourseService {
 
   private readonly url = Constant.courseMicroserviceUrl + "/courses";
-  public courses: Course[];
 
   constructor(private http: HttpClient) {
-    this.courses = []
   }
 
   getCourseServiceUrl(): string {
@@ -30,7 +28,6 @@ export class CourseService {
     }
     return result;
   }
-
 
   getCourseBycall_number(call_number: string | null) {
     let url = this.getCourseServiceUrl();
