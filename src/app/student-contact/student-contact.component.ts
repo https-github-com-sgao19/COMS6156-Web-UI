@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from "../student";
-import {Contact} from "../contact";
-import {Constant} from "../constant";
-import {ActivatedRoute, Router} from "@angular/router";
-import {ContactService} from "../contact.service";
+import { Contact } from "../contact";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ContactService } from "../contact.service";
 
 @Component({
   selector: 'app-student-contact',
@@ -17,10 +15,10 @@ export class StudentContactComponent implements OnInit {
   public uni: string | null;
   public editMode: boolean;
 
-  constructor(private activateRoute: ActivatedRoute, private router: Router, private contactService: ContactService) { 
+  constructor(private activateRoute: ActivatedRoute, private router: Router, private contactService: ContactService) {
     this.contact = new Contact();
     this.contactOld = new Contact();
-    this.uni = "aa1000";//this.activateRoute.snapshot.paramMap.get('uni');
+    this.uni = this.activateRoute.snapshot.paramMap.get('uni');
     this.contactService.getContactByUni(this.uni).subscribe({
       next: (data) => this.contact = data,
       error: (error) => this.router.navigate(["../"], {relativeTo: this.activateRoute})

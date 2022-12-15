@@ -10,15 +10,12 @@ import { CourseModifyComponent } from "./course-modify/course-modify.component";
 import { CourseProjectComponent } from "./course-project/course-project.component";
 
 const routes: Routes = [
-  { path: "", component: NavbarComponent, children: [
-      { path: "students", component: StudentComponent },
-      { path: "courses", component: CourseComponent }
-    ] },
+  { path: "students", component: StudentComponent },
+  { path: "courses", component: CourseComponent },
   { path: "students/enrollment", component: StudentEnrollmentComponent },
   { path: "students/:uni", component: StudentInformationComponent },
   { path: "courses/insert", component: CourseInsertComponent },
-  { path: "courses/:call_no", component: CourseModifyComponent },
-  { path: "courses/:call_no/project", component: CourseInsertComponent}
+  { path: "courses/:call_no", component: CourseModifyComponent }
 ];
 
 @NgModule({
