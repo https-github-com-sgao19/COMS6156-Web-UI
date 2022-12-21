@@ -40,10 +40,10 @@
              class="form-control" [(ngModel)]="student.email" name="email" [disabled]="!editMode" required>
     </div>
 
-    <div class="mb-3">
-      <label>Address</label>
-      <input type="text" class="form-control" name="address" [disabled]="!editMode">
-    </div>
+<!--    <div class="mb-3">-->
+<!--      <label>Address</label>-->
+<!--      <input type="text" class="form-control" name="address" [disabled]="!editMode">-->
+<!--    </div>-->
 
     <div class="g-3 mb-3">
       <select #studentSchool="ngModel" [class.is-invalid]="studentSchool.invalid && studentSchool.touched"
@@ -57,9 +57,5 @@
     <button *ngIf="!editMode" class="btn btn-info" (click)="onEdit()" id="edit">Edit Profile</button>
     <button *ngIf="editMode" [disabled]="studentForm.form.invalid" class="btn btn-primary" (click)="onSave()">Save</button>
     <button *ngIf="editMode" class="btn btn-primary" style="float: right" (click)="onCancel()">Cancel</button>
-    <!--    {{studentForm.value | json}}-->
   </form>
 </div>
-{{student | json}}
-<p></p>
-{{studentOld | json}}

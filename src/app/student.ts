@@ -5,6 +5,8 @@ export class Student {
               public middle_name: string="",
               public last_name: string="",
               public email: string="",
+              public phone: string="",
+              public address: string="",
               public school_code: string="") {}
 
 }

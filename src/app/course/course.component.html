@@ -9,7 +9,7 @@
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <button ngbDropdownItem onclick="location.href='/courses/insert'">Insert</button>
-          <button ngbDropdownItem>Another Action</button>
+          <button ngbDropdownItem>Delete</button>
           <button ngbDropdownItem>Something else is here</button>
         </div>
       </div>
@@ -19,8 +19,6 @@
       <label>Type in course call_number: </label>
       <input type="text" class="form-control mb-3" [(ngModel)]="coursecall_number">
       <button type="button" (click)="onLookUp()" class="btn btn-primary mb-3">Search</button>
-<!--      <button style="margin-left:10px" type="button" class="btn btn-primary mb-3">Modify</button>-->
-      <button style="margin-left:10px" type="button" class="btn btn-primary mb-3">Delete</button>
       <table class="table table-striped">
         <thead>
         <tr>
@@ -34,7 +32,6 @@
         <tbody>
         <tr *ngFor="let p of coursesInfo; index as i">
           <td><a href="/courses/{{p.call_number}}">{{ p.call_number }}</a></td>
-          <td>{{ p.call_number }}</td>
           <td>{{ p.class_title }}</td>
           <td>{{ p.instructor }}</td>
           <td>{{ p.day }}</td>
