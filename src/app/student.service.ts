@@ -17,18 +17,12 @@ export class StudentService {
 
   getStudentServiceUrl(): string {
     const theUrl = window.location.href;
-    let result: string;
+    return this.url;
+  }
 
-    // This is some seriously bad code.
-    // If you do this on a job interview, you did not learn this in my class.
-    if (theUrl.includes('amazonaws')) {
-      /* This can change over time */
-      result = this.url;
-    }
-    else {
-      result = this.url;
-    }
-    return result;
+  getCompositionServiceUrl(): string {
+    return Constant.apiGatewayUrl + "/composition";
+    // return "http://127.0.0.1:5000/composition";
   }
 
   getStudentByUni(uni: string | null) {
@@ -47,7 +41,8 @@ export class StudentService {
   }
 
   postStudents(student: Student) {
-    let url = this.getStudentServiceUrl();
+    // let url = this.getStudentServiceUrl();
+    let url = this.getCompositionServiceUrl() + "/student"
     return this.http.post<any>(url, student);
   }
 

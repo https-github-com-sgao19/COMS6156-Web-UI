@@ -46,7 +46,4 @@ export class CourseModifyComponent implements OnInit {
       });
     this.router.navigate(["../"], {relativeTo: this.activateRoute});
   }
-
-
-
 }

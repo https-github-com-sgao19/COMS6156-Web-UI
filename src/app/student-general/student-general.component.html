@@ -40,10 +40,10 @@
              class="form-control" [(ngModel)]="student.email" name="email" [disabled]="!editMode" required>
     </div>
 
-    <div class="mb-3">
-      <label>Address</label>
-      <input type="text" class="form-control" name="address" [disabled]="!editMode">
-    </div>
+<!--    <div class="mb-3">-->
+<!--      <label>Address</label>-->
+<!--      <input type="text" class="form-control" name="address" [disabled]="!editMode">-->
+<!--    </div>-->
 
     <div class="g-3 mb-3">
       <select #studentSchool="ngModel" [class.is-invalid]="studentSchool.invalid && studentSchool.touched"
